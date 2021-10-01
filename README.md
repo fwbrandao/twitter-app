@@ -2,6 +2,22 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## config.json
+
+create a json file and 
+replace with your credentials for Twitter API
+
+{
+  "consumer_key": "...",
+  "consumer_secret": "...",
+  "access_token": "...",
+  "access_token_secret": "..."
+}
+
+## CORS 
+
+open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
+
 ## Available Scripts
 
 In the project directory, you can run:
