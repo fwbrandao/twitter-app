@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Paper, Grid, makeStyles, Tooltip } from '@material-ui/core';
-import SavedTweets from './saveTweets';
+import SaveTweets from './saveTweets';
 import SwapHorizIcon from '@material-ui/icons/SwapHoriz';
 import SearchTweets from './searchTweets';
 
@@ -47,7 +47,7 @@ const MainComponent = () => {
         </Grid>
         <Grid item xs={5}>
           <Paper className={classes.displayComponents} elevation={3}>
-              <SavedTweets allowedDropEffect="copy"/>
+              <SaveTweets allowedDropEffect="move"/>
           </Paper>
         </Grid>
       </Grid>

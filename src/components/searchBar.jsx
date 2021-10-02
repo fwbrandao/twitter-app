@@ -29,6 +29,7 @@ const SearchBar = ({ fetchTweets, setNewSearchValue }) => {
 
   const handleValueChange = (event) => {
     setNewSearchValue(event.target.value);
+    fetchTweets();
   };
 
   return (

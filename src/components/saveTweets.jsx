@@ -1,35 +1,24 @@
+import React from 'react';
 import { useDrop } from 'react-dnd';
 import { ItemTypes } from './itemTypes';
+import { Paper, makeStyles, Typography } from '@material-ui/core';
 
-const style = {
-    height: '12rem',
-    width: '12rem',
-    marginRight: '1.5rem',
-    marginBottom: '1.5rem',
-    color: 'white',
-    padding: '1rem',
-    textAlign: 'center',
-    fontSize: '1rem',
-    lineHeight: 'normal',
-    float: 'left',
-};
-
-function selectBackgroundColor(isActive, canDrop) {
-    if (isActive) {
-        return 'darkgreen';
-    }
-    else if (canDrop) {
-        return 'darkkhaki';
-    }
-    else {
-        return '#222';
-    }
-}
+const useStyles = makeStyles((theme) => ({
+  tweetText: {
+    marginTop: '10px',
+    padding: theme.spacing(1),
+  },
+}));
 
 const SavedTweets = ({ allowedDropEffect }) => {
+  const classes = useStyles();
 
-  const [{ canDrop, isOver }, drop] = useDrop(() => ({
-      accept: ItemTypes.BOX,
+  var savedTweets = JSON.parse(localStorage.getItem("items")) || [];
+
+  console.log('savedTweets', savedTweets);
+
+  const [, drop] = useDrop(() => ({
+      accept: ItemTypes.CARD,
       drop: () => ({
           name: `${allowedDropEffect} Dustbin`,
           allowedDropEffect,
@@ -40,16 +29,20 @@ const SavedTweets = ({ allowedDropEffect }) => {
       }),
   }), [allowedDropEffect]);
 
-  const isActive = canDrop && isOver;
-  const backgroundColor = selectBackgroundColor(isActive, canDrop);
 
 return (
-    <div ref={drop} style={{ ...style, backgroundColor }}>
-      {`Works with ${allowedDropEffect} drop effect`}
-        <br />
-        <br />
-      {isActive ? 'Release to drop' : 'Drag a box here'}
-    </div>
+    <>
+      <Typography>Saved Tweets</Typography>
+      {savedTweets.map(text => (
+        <Paper 
+          key={text}
+          ref={drop} 
+          className={classes.tweetText} 
+        >
+          {text}
+        </Paper>
+      ))}
+    </>
   );
 };
 
