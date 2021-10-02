@@ -16,8 +16,7 @@ Please fill in your credentials on [config.json] file
 
 ## CORS 
 
-Ideally, CORS policy would have been configured on the server side. 
-But for simplicity, please run the command bellow to open Chrome with CORS disabled. 
+Ideally, CORS policy would have been configured on the server-side. But for simplicity, please run the command below to open Chrome with CORS disabled. 
 
 open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security
 
